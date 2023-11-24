@@ -50,6 +50,9 @@ function App() {
               <Nav.Link href="#explore" style={{ fontSize: "18px" }}>
                 Explore
               </Nav.Link>
+              <Nav.Link href="/publish" style={{ fontSize: "18px" }}>
+                Publish
+              </Nav.Link>
             </Nav>
             <Dropdown>
               <Dropdown.Toggle id="dropdown-basic">
