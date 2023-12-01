@@ -15,15 +15,13 @@ const Sidebar = () => {
       <ListGroup>
         {current_ride_sharing_data.map((cur, index) => {
           return (
-            <>
-              <ListGroup.Item
-                key={index}
-                onClick={handleClick}
-                style={{ cursor: "pointer" }}
-              >
-                {cur.destination}
-              </ListGroup.Item>
-            </>
+            <ListGroup.Item
+              key={index}
+              onClick={handleClick}
+              style={{ cursor: "pointer" }}
+            >
+              {cur.destination}
+            </ListGroup.Item>
           );
         })}
       </ListGroup>

@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Form, Button, Container } from "react-bootstrap";
 import { GoogleSigninAPI, LoginAPI } from "../api/AuthAPI";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import GoogleButton from "react-google-button";
 import { toast } from "react-toastify";
-
+import { onAuthStateChanged, signInWithPopup } from "firebase/auth";
+import { auth, provider } from "../firebaseConfig";
 const Login = () => {
   const [credentials, setCredentials] = useState([]);
   const navigate = useNavigate();
@@ -22,8 +23,17 @@ const Login = () => {
   };
 
   const googleSignin = () => {
-    let res = GoogleSigninAPI();
-    console.log(res);
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        const user = result.user;
+
+        toast.success("Successfully signed in");
+        navigate("/");
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        toast.error(errorMessage);
+      });
   };
 
   return (
