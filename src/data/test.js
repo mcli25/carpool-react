@@ -10,6 +10,7 @@ export const current_ride_sharing_data = [
     publish_timestamp: 1700504313,
     vacancy: 4,
     total_carbon_emission_reduction: 0,
+    publisher: "Alex",
   },
   {
     vehicle_owner_number: 100001,
@@ -22,6 +23,7 @@ export const current_ride_sharing_data = [
     publish_timestamp: 1700504313,
     vacancy: 4,
     total_carbon_emission_reduction: 0,
+    publisher: "Bob",
   },
   {
     vehicle_owner_number: 100001,
@@ -34,5 +36,6 @@ export const current_ride_sharing_data = [
     publish_timestamp: 1700504313,
     vacancy: 4,
     total_carbon_emission_reduction: 0,
+    publisher: "Clara",
   },
 ];

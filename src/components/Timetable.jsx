@@ -22,13 +22,13 @@ const Timetable = ({ data }) => {
           {data.map((cur, index) => {
             return (
               <>
-                {" "}
                 <tr>
                   <td>{index}</td>
                   <td>{cur.departure}</td>
                   <td>{cur.destination}</td>
                   <td>{cur.vacancy}</td>
                   <td>{cur.departure_time}</td>
+                  <td>{cur.publisher}</td>
                 </tr>
               </>
             );

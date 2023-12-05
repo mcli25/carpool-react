@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Button,
   Dropdown,
@@ -13,8 +13,12 @@ import { Avatar } from "@mui/material";
 import { toast } from "react-toastify";
 
 import { useNavigate } from "react-router-dom";
-
+import Publish from "./CarOwner/Publish";
 const Topbar = ({ isLogged, user, handleLogout }) => {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   return (
     <Navbar
       bg="success"
@@ -54,11 +58,7 @@ const Topbar = ({ isLogged, user, handleLogout }) => {
             <Nav.Link href="/explore" style={{ fontSize: "18px" }}>
               Explore
             </Nav.Link>
-            {isLogged && (
-              <Nav.Link href="/publish" style={{ fontSize: "18px" }}>
-                Publish
-              </Nav.Link>
-            )}
+            {isLogged && <Publish></Publish>}
           </Nav>
           <Dropdown>
             <Dropdown.Toggle id="dropdown-basic" variant="success">

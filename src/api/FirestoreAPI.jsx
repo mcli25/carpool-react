@@ -1,2 +1,3 @@
-import { addDoc, collection } from "firebase/firestore";
-import { db } from "../firebaseConfig";
+import { Firestore, addDoc, collection } from "firebase/firestore";
+
+export const PostInfo = () => {};
