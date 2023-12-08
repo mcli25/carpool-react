@@ -14,11 +14,30 @@ import { toast } from "react-toastify";
 
 import { useNavigate } from "react-router-dom";
 import Publish from "./CarOwner/Publish";
-const Topbar = ({ isLogged, user, handleLogout }) => {
+const Topbar = ({ isLogged, user, handleLogout, infos, setSearchResults }) => {
   const [show, setShow] = useState(false);
+  const [start, setStart] = useState("");
+  const [dest, setDest] = useState("");
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const res = infos.filter(
+      (info) =>
+        info.departure.toLowerCase().includes(start) &&
+        info.destination.toLowerCase().includes(dest)
+    );
+    setSearchResults(res);
+  };
+  const handleStartChange = (e) => {
+    e.preventDefault();
+    setStart(e.target.value);
+  };
+  const handleDestChange = (e) => {
+    e.preventDefault();
+    setDest(e.target.value);
+  };
   return (
     <Navbar
       bg="success"
@@ -36,12 +55,14 @@ const Topbar = ({ isLogged, user, handleLogout }) => {
               placeholder="Your location"
               className="mr-2"
               style={{ fontSize: "18px" }}
+              onChange={handleStartChange}
             />
             <FormControl
               type="text"
               placeholder="Destination"
               className="mr-2"
               style={{ fontSize: "18px" }}
+              onChange={handleDestChange}
             />
             <Button
               variant="outline-light"
@@ -50,6 +71,7 @@ const Topbar = ({ isLogged, user, handleLogout }) => {
                 marginLeft: "10px",
                 marginRight: "10px",
               }}
+              onClick={handleSubmit}
             >
               Search
             </Button>
@@ -62,7 +84,7 @@ const Topbar = ({ isLogged, user, handleLogout }) => {
           </Nav>
           <Dropdown>
             <Dropdown.Toggle id="dropdown-basic" variant="success">
-              <Avatar>{user.displayName}</Avatar>
+              <Avatar>{user?.displayName}</Avatar>
             </Dropdown.Toggle>
 
             <Dropdown.Menu>

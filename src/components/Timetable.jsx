@@ -1,8 +1,7 @@
 import React from "react";
-import { Table } from "react-bootstrap";
+import { Alert, Table } from "react-bootstrap";
 import SortIcon from "@mui/icons-material/Sort";
-
-const Timetable = ({ data }) => {
+const Timetable = ({ searchResults }) => {
   return (
     <>
       <Table striped bordered hover>
@@ -19,20 +18,28 @@ const Timetable = ({ data }) => {
           </tr>
         </thead>
         <tbody>
-          {data.map((cur, index) => {
-            return (
-              <>
-                <tr>
-                  <td>{index}</td>
-                  <td>{cur.departure}</td>
-                  <td>{cur.destination}</td>
-                  <td>{cur.vacancy}</td>
-                  <td>{cur.departure_time}</td>
-                  <td>{cur.publisher}</td>
-                </tr>
-              </>
-            );
-          })}
+          {searchResults.length === 0 ? (
+            <>
+              <Alert key="warning" variant="warning">
+                Not Found
+              </Alert>
+            </>
+          ) : (
+            searchResults.map((cur, index) => {
+              return (
+                <>
+                  <tr>
+                    <td>{index}</td>
+                    <td>{cur.departure}</td>
+                    <td>{cur.destination}</td>
+                    <td>{cur.vacancy}</td>
+                    <td>{cur.departure_time}</td>
+                    <td>{cur.publisher}</td>
+                  </tr>
+                </>
+              );
+            })
+          )}
         </tbody>
       </Table>
     </>

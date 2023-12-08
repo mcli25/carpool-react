@@ -1,10 +1,12 @@
 import React from "react";
 import { Card, ListGroup } from "react-bootstrap";
-import { current_ride_sharing_data } from "../data/test";
-
-const Sidebar = () => {
-  const handleClick = () => {
-    console.log("first");
+import { irelandCities } from "../data/cities";
+const Sidebar = ({ setSearchResults, infos }) => {
+  const handleClick = (cur) => {
+    console.log("Clicked:", cur);
+    console.log(infos);
+    const res = infos.filter((info) => info.destination === cur);
+    setSearchResults(res);
   };
   return (
     <>
@@ -13,14 +15,14 @@ const Sidebar = () => {
         <strong>Popular Destination</strong>
       </Card>
       <ListGroup>
-        {current_ride_sharing_data.map((cur, index) => {
+        {irelandCities.map((cur, index) => {
           return (
             <ListGroup.Item
               key={index}
-              onClick={handleClick}
+              onClick={() => handleClick(cur)}
               style={{ cursor: "pointer" }}
             >
-              {cur.destination}
+              {cur}
             </ListGroup.Item>
           );
         })}
