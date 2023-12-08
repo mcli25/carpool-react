@@ -4,7 +4,8 @@ import SignupPage from "../pages/SignupPage";
 import PublishPage from "../pages/PublishPage";
 import Home from "../components/Home";
 import ProfilePage from "../pages/ProfilePage";
-
+import BookPage from "../pages/BookPage";
+import ExplorePage from "../pages/ExplorePage";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -25,5 +26,14 @@ export const router = createBrowserRouter([
   {
     path: "/profile",
     element: <ProfilePage />,
+  },
+
+  {
+    path: "/book",
+    element: <BookPage />,
+  },
+  {
+    path: "/explore",
+    element: <ExplorePage />,
   },
 ]);

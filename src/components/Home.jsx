@@ -24,6 +24,15 @@ const Home = () => {
     setInfos((infos) => infos.filter((info) => info.id !== id));
   };
 
+  const handleToggle = (id) => {
+    console.log(id);
+    setSearchResults((searchResults) =>
+      searchResults.map((s) => {
+        return s.id === id ? { ...s, selected: !s.selected } : s;
+      })
+    );
+  };
+
   const handleLogout = () => {
     signOut(auth)
       .then(() => {
@@ -62,7 +71,10 @@ const Home = () => {
           <Sidebar setSearchResults={setSearchResults} infos={infos}></Sidebar>
         </div>
         <div className="w-100">
-          <Timetable searchResults={searchResults}></Timetable>
+          <Timetable
+            searchResults={searchResults}
+            ontoggleItem={handleToggle}
+          ></Timetable>
         </div>
       </div>
     </>

@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Alert, Table } from "react-bootstrap";
 import SortIcon from "@mui/icons-material/Sort";
-const Timetable = ({ searchResults }) => {
+import { Box, IconButton } from "@mui/material";
+import { Favorite, FavoriteBorder } from "@mui/icons-material";
+const Timetable = ({ searchResults, ontoggleItem }) => {
   return (
     <>
       <Table striped bordered hover>
@@ -34,7 +36,24 @@ const Timetable = ({ searchResults }) => {
                     <td>{cur.destination}</td>
                     <td>{cur.vacancy}</td>
                     <td>{cur.departure_time}</td>
-                    <td>{cur.publisher}</td>
+                    <td>
+                      <Box
+                        display="flex"
+                        justifyContent="space-between"
+                        alignItems="center"
+                      >
+                        <span>{cur.publisher}</span>
+                        <IconButton
+                          onClick={() => ontoggleItem(cur.id)}
+                          sx={{
+                            "--IconButton-size": "32px",
+                            color: cur.selected ? "red" : "inherit",
+                          }}
+                        >
+                          {cur.selected ? <Favorite /> : <FavoriteBorder />}
+                        </IconButton>
+                      </Box>
+                    </td>
                   </tr>
                 </>
               );

@@ -1,5 +1,6 @@
 export const current_ride_sharing_data = [
   {
+    id: 1,
     vehicle_owner_number: 100001,
     departure: "Dublin",
     destination: "Maynooth",
@@ -13,6 +14,7 @@ export const current_ride_sharing_data = [
     publisher: "Alex",
   },
   {
+    id: 2,
     vehicle_owner_number: 100001,
     departure: "Dublin",
     destination: "Galway",
@@ -26,6 +28,7 @@ export const current_ride_sharing_data = [
     publisher: "Bob",
   },
   {
+    id: 3,
     vehicle_owner_number: 100001,
     departure: "Galway",
     destination: "Cork",

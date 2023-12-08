@@ -77,10 +77,21 @@ const Topbar = ({ isLogged, user, handleLogout, infos, setSearchResults }) => {
             </Button>
           </Form>
           <Nav className="mr-auto">
-            <Nav.Link href="/explore" style={{ fontSize: "18px" }}>
-              Explore
-            </Nav.Link>
-            {isLogged && <Publish></Publish>}
+            {isLogged && (
+              <Nav.Link href="/explore" style={{ fontSize: "18px" }}>
+                Store
+              </Nav.Link>
+            )}
+            {isLogged && (
+              <Nav.Link href="/book" style={{ fontSize: "18px" }}>
+                Book
+              </Nav.Link>
+            )}
+            {isLogged && (
+              <Nav.Link href="/publish" style={{ fontSize: "18px" }}>
+                Publish
+              </Nav.Link>
+            )}
           </Nav>
           <Dropdown>
             <Dropdown.Toggle id="dropdown-basic" variant="success">
@@ -97,7 +108,7 @@ const Topbar = ({ isLogged, user, handleLogout, infos, setSearchResults }) => {
                 <Dropdown.Item href="/favorites">My favorites</Dropdown.Item>
               )}
               {isLogged && (
-                <Dropdown.Item href="/action-3">My publishs</Dropdown.Item>
+                <Dropdown.Item href="/publish">My publishs</Dropdown.Item>
               )}
               {isLogged && (
                 <Dropdown.Item onClick={handleLogout}>Log out</Dropdown.Item>
