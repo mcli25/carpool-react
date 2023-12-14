@@ -83,17 +83,17 @@ const Topbar = () => {
           <Nav className="mr-auto">
             {isLogged && (
               <Nav.Link as={NavLink} to="/explore" style={{ fontSize: "18px" }}>
-                explore
+                Explore
               </Nav.Link>
             )}
             {isLogged && (
               <Nav.Link as={NavLink} to="/book" style={{ fontSize: "18px" }}>
-                book
+                Book
               </Nav.Link>
             )}
             {isLogged && (
               <Nav.Link as={NavLink} to="/publish" style={{ fontSize: "18px" }}>
-                Publish
+                CarOwner
               </Nav.Link>
             )}
           </Nav>

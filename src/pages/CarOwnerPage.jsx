@@ -1,13 +1,14 @@
-import Publish from "../components/CarOwner/Publish";
 import Topbar from "../components/Topbar";
 import { AuthProvider } from "../context/Auth";
 import { InfoProvider } from "../context/Info";
+import CarOwnerComponent from "../components/CarOwner/CarOwnerComponent";
+
 const PublishPage = () => {
   return (
     <AuthProvider>
       <InfoProvider>
         <Topbar></Topbar>
-        <Publish></Publish>;
+        <CarOwnerComponent></CarOwnerComponent>
       </InfoProvider>
     </AuthProvider>
   );
