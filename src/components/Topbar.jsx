@@ -16,6 +16,8 @@ import { useNavigate } from "react-router-dom";
 import Publish from "./CarOwner/Publish";
 import AuthContext from "../context/Auth";
 import InfoContext from "../context/Info";
+
+import { NavLink } from "react-router-dom";
 const Topbar = () => {
   const { isLogged, user, handleLogout } = useContext(AuthContext);
   const { infos, setSearchResults } = useContext(InfoContext);
@@ -80,18 +82,17 @@ const Topbar = () => {
           </Form>
           <Nav className="mr-auto">
             {isLogged && (
-              <Nav.Link href="/explore" style={{ fontSize: "18px" }}>
-                Store
-                {/* {user.displayName} */}
+              <Nav.Link as={NavLink} to="/explore" style={{ fontSize: "18px" }}>
+                explore
               </Nav.Link>
             )}
             {isLogged && (
-              <Nav.Link href="/book" style={{ fontSize: "18px" }}>
-                Book
+              <Nav.Link as={NavLink} to="/book" style={{ fontSize: "18px" }}>
+                book
               </Nav.Link>
             )}
             {isLogged && (
-              <Nav.Link href="/publish" style={{ fontSize: "18px" }}>
+              <Nav.Link as={NavLink} to="/publish" style={{ fontSize: "18px" }}>
                 Publish
               </Nav.Link>
             )}
