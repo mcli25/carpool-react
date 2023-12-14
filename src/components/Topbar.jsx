@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import {
   Button,
   Dropdown,
@@ -14,13 +14,15 @@ import { toast } from "react-toastify";
 
 import { useNavigate } from "react-router-dom";
 import Publish from "./CarOwner/Publish";
-const Topbar = ({ isLogged, user, handleLogout, infos, setSearchResults }) => {
-  const [show, setShow] = useState(false);
+import AuthContext from "../context/Auth";
+import InfoContext from "../context/Info";
+const Topbar = () => {
+  const { isLogged, user, handleLogout } = useContext(AuthContext);
+  const { infos, setSearchResults } = useContext(InfoContext);
+
   const [start, setStart] = useState("");
   const [dest, setDest] = useState("");
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
   const handleSubmit = (e) => {
     e.preventDefault();
     const res = infos.filter(
@@ -80,6 +82,7 @@ const Topbar = ({ isLogged, user, handleLogout, infos, setSearchResults }) => {
             {isLogged && (
               <Nav.Link href="/explore" style={{ fontSize: "18px" }}>
                 Store
+                {/* {user.displayName} */}
               </Nav.Link>
             )}
             {isLogged && (

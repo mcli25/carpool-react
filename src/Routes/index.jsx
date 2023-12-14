@@ -6,10 +6,11 @@ import Home from "../components/Home";
 import ProfilePage from "../pages/ProfilePage";
 import BookPage from "../pages/BookPage";
 import ExplorePage from "../pages/ExplorePage";
+import HomePage from "../pages/HomePage";
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: <HomePage />,
   },
   {
     path: "/login",
