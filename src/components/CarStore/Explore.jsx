@@ -3,7 +3,7 @@ import AuthContext from "../../context/Auth";
 
 const Explore = () => {
   const { name } = useContext(AuthContext);
-  return <div>{name}</div>;
+  return <div>hello world</div>;
 };
 
 export default Explore;
