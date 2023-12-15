@@ -69,7 +69,7 @@ const Publish = () => {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleClose}>
+          <Button variant="success" onClick={handleClose}>
             Save Changes
           </Button>
         </Modal.Footer>

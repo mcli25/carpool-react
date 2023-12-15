@@ -1,31 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import Publish from "./Publish";
-import PopularRoutes from "./PopularRoutes";
+import HistoryRoutes from "./HistoryRoutes";
 import CarInfo from "./CarInfo";
+import { Routes, Route, Link } from "react-router-dom";
+import CurrentRoute from "./CurrentRoute";
 
 const CarOwnerComponent = () => {
-  const [displayComponent, setDisplayComponent] = useState(null);
-
-  const showCarInfoComponent = () => {
-    setDisplayComponent(<CarInfo />);
-  };
-
-  const showPopularRoutesComponent = () => {
-    setDisplayComponent(<PopularRoutes />);
-  };
-
-  const showPublishComponent = () => {
-    setDisplayComponent(<Publish />);
-  };
-
   return (
-    <div>
-      <h1>Car Owner</h1>
-      <button onClick={CarInfo}>showCarInfoComponent</button>
-      <button onClick={PopularRoutes}>showPopularRoutesComponent</button>
-      <button onClick={Publish}>showPublishComponent</button>
-      {displayComponent}
-    </div>
+    <>
+      {" "}
+      <CurrentRoute></CurrentRoute>
+      <CarInfo></CarInfo>
+      <HistoryRoutes></HistoryRoutes>
+    </>
   );
 };
 

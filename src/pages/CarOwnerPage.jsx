@@ -3,7 +3,7 @@ import { AuthProvider } from "../context/Auth";
 import { InfoProvider } from "../context/Info";
 import CarOwnerComponent from "../components/CarOwner/CarOwnerComponent";
 
-const PublishPage = () => {
+const CarOwnerPage = () => {
   return (
     <AuthProvider>
       <InfoProvider>
@@ -14,4 +14,4 @@ const PublishPage = () => {
   );
 };
 
-export default PublishPage;
+export default CarOwnerPage;

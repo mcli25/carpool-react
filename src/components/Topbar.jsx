@@ -92,7 +92,11 @@ const Topbar = () => {
               </Nav.Link>
             )}
             {isLogged && (
-              <Nav.Link as={NavLink} to="/publish" style={{ fontSize: "18px" }}>
+              <Nav.Link
+                as={NavLink}
+                to="/carowner"
+                style={{ fontSize: "18px" }}
+              >
                 CarOwner
               </Nav.Link>
             )}
