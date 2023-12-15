@@ -1,13 +1,32 @@
-import React from "react";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+import React, { useState } from "react";
+import Publish from "./Publish";
 import "./CarOwner.css";
 
 export default function CurrentRoute() {
+  const [showPulish, setShowPublish] = useState(false);
+
+  const handleModalOpen = () => {
+    setShowPublish(true);
+  };
+  const handleModalClose = () => {
+    setShowPublish(false);
+  };
+
   return (
-    <div class="current-route">
-      <p>current info</p> <a href="#">publish</a>
-    </div>
+    <>
+      {!showPulish && (
+        <div class="container--1">
+          <div class="current-route">
+            The current route: Dubelin - Cork at Dec. 25th 4p
+          </div>
+          <div>
+            <a class="btn1" href="#" onClick={handleModalOpen}>
+              pulish
+            </a>
+          </div>
+        </div>
+      )}
+      {showPulish && <Publish handleModalClose={handleModalClose}></Publish>}
+    </>
   );
 }
