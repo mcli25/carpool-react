@@ -112,21 +112,55 @@
 
 .container-carinfo {
   display: grid;
-  grid-template-columns: 1fr 2fr; /* 左边一份，右边两份 */
+  grid-template-columns: 1fr 2fr;
   gap: 20px;
 }
 
 .vehicle-info {
-  background-color: white; /* 与carpool-form背景颜色相同 */
-  color: rgb(48, 50, 50); /* 与carpool-form字体颜色相同 */
+  background-color: white;
+  color: rgb(48, 50, 50);
   padding: 20px;
-  border-radius: 5px; /* 与carpool-form边框半径相同 */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* 与carpool-form阴影相同 */
-  font-family: sans-serif; /* 与容器一致的字体 */
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  font-family: sans-serif;
 }
 
 .car-img {
   /* background-color: #f8f8f8; */
   /* padding: 10px; */
   border-radius: 20px;
+}
+
+.history-routes-container {
+  background-color: white;
+  color: rgb(48, 50, 50);
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  font-family: sans-serif;
+}
+
+.history-routes-title {
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: 500;
+  color: #28b485;
+  text-align: center;
+}
+
+.history-routes-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.history-routes-table th,
+.history-routes-table td {
+  border: 1px solid #7ed56f;
+  padding: 10px;
+  text-align: left;
+}
+
+.history-routes-table th {
+  background-color: #7ed56f;
+  color: white;
 }
