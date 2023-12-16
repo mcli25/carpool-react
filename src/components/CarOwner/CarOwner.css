@@ -4,9 +4,9 @@
   font-size: 20px;
   height: auto;
   padding: 15px;
-  font-weight: 200;
+  font-weight: 300;
   align-items: center;
-  color: rgb(78, 79, 80);
+  color: rgb(48, 50, 50);
 
   /* CSS GRID */
   display: grid;
@@ -108,4 +108,25 @@
 .btn2:active {
   transform: translateY(-1px);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.container-carinfo {
+  display: grid;
+  grid-template-columns: 1fr 2fr; /* 左边一份，右边两份 */
+  gap: 20px;
+}
+
+.vehicle-info {
+  background-color: white; /* 与carpool-form背景颜色相同 */
+  color: rgb(48, 50, 50); /* 与carpool-form字体颜色相同 */
+  padding: 20px;
+  border-radius: 5px; /* 与carpool-form边框半径相同 */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* 与carpool-form阴影相同 */
+  font-family: sans-serif; /* 与容器一致的字体 */
+}
+
+.car-img {
+  /* background-color: #f8f8f8; */
+  /* padding: 10px; */
+  border-radius: 20px;
 }
