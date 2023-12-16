@@ -1,16 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { irelandCities } from "../../data/cities";
 import "./CarOwner.css";
 
+// import AuthContext from "../../context/Auth";
+
 function Pulish(props) {
+  // const { user } = useContext(AuthContext);
   const [formData, setFormData] = useState({
-    driver: "wxy",
+    driver: "test",
     departure: "",
     destination: "",
     date: new Date(),
     phone: "",
+    timestamp: Date.now(),
   });
 
   const handleInputChange = (e) => {
@@ -23,8 +27,9 @@ function Pulish(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // 处理提交逻辑
-    console.log(formData);
+    // publish
+    props.addRoute(formData);
+    props.handleModalClose();
   };
 
   return (
@@ -37,7 +42,7 @@ function Pulish(props) {
             value={formData.departure}
             onChange={handleInputChange}
           >
-            <option value="">选择出发地</option>
+            <option value="">Select Departure</option>
             {irelandCities.map((city) => (
               <option value={city}>{city}</option>
             ))}
@@ -50,7 +55,7 @@ function Pulish(props) {
             value={formData.destination}
             onChange={handleInputChange}
           >
-            <option value="">选择目的地</option>
+            <option value="">Select Destination</option>
             {irelandCities.map((city) => (
               <option value={city}>{city}</option>
             ))}
