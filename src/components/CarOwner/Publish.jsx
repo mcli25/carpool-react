@@ -38,6 +38,9 @@ function Pulish(props) {
     if (!formData.destination) {
       errors.destinationError = "Please select a destination city.";
     }
+    if (formData.departure === formData.destination) {
+      errors.destinationError = "Departure and destination cannot be the same.";
+    }
 
     if (!/^(\+\d{1,3}[- ]?)?\d{7,15}$/.test(formData.phone)) {
       errors.phoneError = "Please enter a valid telephone number.";
