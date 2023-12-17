@@ -13,13 +13,13 @@ import {
   addDoc,
 } from "firebase/firestore";
 import { format } from "date-fns";
-// import AuthContext from "../../context/Auth";
+import AuthContext from "../../context/Auth";
 
 export default function CurrentRoute() {
   const [showPulish, setShowPublish] = useState(false);
   const [currentRoute, setCurrentRoute] = useState(null);
 
-  // const { user } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const handleModalOpen = () => {
     setShowPublish(true);
   };
@@ -28,34 +28,39 @@ export default function CurrentRoute() {
   };
 
   // get current route data
-  const fetchData = async () => {
-    const routesRef = collection(db, "routes");
-    // create query
-    const q = query(
-      routesRef,
-      where("driver", "==", "test"),
-      where("date", ">", Timestamp.now())
-    );
+  const fetchData = async (driver) => {
+    try {
+      const routesRef = collection(db, "routes");
+      // create query
+      const q = query(
+        routesRef,
+        where("driver", "==", driver),
+        where("date", ">", Timestamp.now())
+      );
 
-    // execute query
-    const querySnapshot = await getDocs(q);
+      // execute query
+      const querySnapshot = await getDocs(q);
 
-    // Process Query Results
-    const routes = querySnapshot.docs.map((doc) => ({
-      id: doc.id,
-      ...doc.data(),
-    }));
-    console.log(routes[0]);
-    if (routes[0] != null) {
-      setCurrentRoute(routes[0]);
-      console.log("currentoute", routes[0]);
-    } else {
-      setCurrentRoute(null);
+      // Process Query Results
+      const routes = querySnapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+
+      if (routes[0] != null) {
+        setCurrentRoute(routes[0]);
+      } else {
+        setCurrentRoute(null);
+      }
+    } catch (e) {
+      console.error("Error fetch document: ", e);
     }
   };
   useEffect(() => {
-    fetchData();
-  }, []);
+    if (user.displayName) {
+      fetchData(user.displayName);
+    }
+  }, [user]);
 
   // insert data to firebase
   const addRoute = async (newRoute) => {
@@ -64,7 +69,7 @@ export default function CurrentRoute() {
 
       // add new document
       const docRef = await addDoc(routesRef, newRoute);
-      fetchData();
+      fetchData(user.displayName);
       console.log("Document written with ID: ", docRef.id);
     } catch (e) {
       console.error("Error adding document: ", e);
@@ -77,7 +82,7 @@ export default function CurrentRoute() {
       const docRef = doc(db, "routes", documentId);
       await deleteDoc(docRef);
       // refresh
-      fetchData();
+      fetchData(user.displayName);
 
       console.log("Document successfully deleted with ID: ", documentId);
     } catch (error) {
@@ -123,6 +128,7 @@ export default function CurrentRoute() {
           handleModalClose={handleModalClose}
           setCurrentRoute={setCurrentRoute}
           addRoute={addRoute}
+          driver={user.displayName}
         ></Publish>
       )}
     </>

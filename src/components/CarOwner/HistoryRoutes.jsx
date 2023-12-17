@@ -9,15 +9,18 @@ import {
   Timestamp,
 } from "firebase/firestore";
 import { format } from "date-fns";
+import AuthContext from "../../context/Auth";
 
 const HistoryRoutes = () => {
   const [historyRoutes, setHistoryRoutes] = useState([]);
-  const fetchData = async () => {
+  const { user } = useContext(AuthContext);
+
+  const fetchData = async (driver) => {
     const routesRef = collection(db, "routes");
     // create query
     const q = query(
       routesRef,
-      where("driver", "==", "test"),
+      where("driver", "==", driver),
       where("date", "<", Timestamp.now())
     );
 
@@ -37,9 +40,11 @@ const HistoryRoutes = () => {
     }
   };
   useEffect(() => {
-    fetchData();
-  }, []);
-  console.log("historyRoutes", historyRoutes);
+    if (user.displayName) {
+      fetchData(user.displayName);
+    }
+  }, [user]);
+
   return (
     <div className="history-routes-container">
       <h3 className="history-routes-title">History Routes</h3>

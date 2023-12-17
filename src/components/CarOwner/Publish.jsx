@@ -1,15 +1,12 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { irelandCities } from "../../data/cities";
 import "./CarOwner.css";
 
-// import AuthContext from "../../context/Auth";
-
 function Pulish(props) {
-  // const { user } = useContext(AuthContext);
   const [formData, setFormData] = useState({
-    driver: "test",
+    driver: props.driver,
     departure: "",
     destination: "",
     date: new Date(),

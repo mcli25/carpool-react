@@ -5,26 +5,19 @@ const CarInfo = () => {
     make: "Japan",
     model: "AE86",
     year: "1997",
-    imageUrl: "public/img/AE86.JPG",
+    imageUrl: "/img/AE86.JPG",
   });
   return (
     <div className="container-carinfo">
       <div className="car-img">
-        {/* 历史线路内容 */}
         <img
           src={vehicleInfo.imageUrl}
           alt={`${vehicleInfo.make} ${vehicleInfo.model}`}
           width={1000}
         />
-        {/* 假设你有一个函数来获取并展示历史线路 */}
-        {/* {renderHistoryRoutes()} */}
       </div>
       <div className="vehicle-info">
-        {/* 车辆信息内容 */}
         <h3>My Vehicle</h3>
-        {/* 假设你有一个函数来获取并展示车辆信息 */}
-        {/* {renderVehicleInfo()} */}
-
         <p>
           <strong>Make:</strong> {vehicleInfo.make}
         </p>
