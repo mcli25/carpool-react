@@ -14,6 +14,11 @@ function Pulish(props) {
     timestamp: Date.now(),
   });
 
+  const [formErrors, setFormErrors] = useState({
+    departureError: "",
+    destinationError: "",
+    phoneError: "",
+  });
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -24,15 +29,35 @@ function Pulish(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    let errors = { departureError: "", destinationError: "", phoneError: "" };
+    if (!formData.departure) {
+      errors.departureError = "Please select a departure city.";
+    }
+
+    if (!formData.destination) {
+      errors.destinationError = "Please select a destination city.";
+    }
+
+    if (!/^(\+\d{1,3}[- ]?)?\d{7,15}$/.test(formData.phone)) {
+      errors.phoneError = "Please enter a valid telephone number.";
+    }
+    setFormErrors(errors);
     // publish
-    props.addRoute(formData);
-    props.handleModalClose();
+    if (
+      !errors.departureError &&
+      !errors.destinationError &&
+      !errors.phoneError
+    ) {
+      props.addRoute(formData);
+      props.handleModalClose();
+    }
   };
 
   return (
-    <div class="carpool-form">
-      <form class="publish-grid-container" onSubmit={handleSubmit}>
-        <label class="publish-grid-item">
+    <div className="carpool-form">
+      <form className="publish-grid-container" onSubmit={handleSubmit}>
+        <label className="publish-grid-item">
           Departure:
           <select
             name="departure"
@@ -44,6 +69,9 @@ function Pulish(props) {
               <option value={city}>{city}</option>
             ))}
           </select>
+          {formErrors.departureError && (
+            <div className="error">{formErrors.departureError}</div>
+          )}
         </label>
         <label class="publish-grid-item">
           Destination:
@@ -57,6 +85,9 @@ function Pulish(props) {
               <option value={city}>{city}</option>
             ))}
           </select>
+          {formErrors.destinationError && (
+            <div className="error">{formErrors.destinationError}</div>
+          )}
         </label>
 
         <label class="publish-grid-item">
@@ -67,11 +98,18 @@ function Pulish(props) {
             value={formData.phone}
             onChange={handleInputChange}
           />
+          {formErrors.phoneError && (
+            <div className="error">{formErrors.phoneError}</div>
+          )}
         </label>
         <label class="publish-grid-item">
           Date:
           <br></br>
-          <DatePicker selected={formData.date} onChange={handleDateChange} />
+          <DatePicker
+            selected={formData.date}
+            onChange={handleDateChange}
+            minDate={new Date()}
+          />
         </label>
         <button class="publish-grid-item btn2">Publish</button>
         <button class="publish-grid-item btn2" onClick={props.handleModalClose}>

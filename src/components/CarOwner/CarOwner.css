@@ -164,3 +164,7 @@
   background-color: #7ed56f;
   color: white;
 }
+
+.error {
+  color: red;
+}
