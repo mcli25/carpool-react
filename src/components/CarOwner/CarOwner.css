@@ -1,4 +1,166 @@
+.container--1 {
+  font-family: sans-serif;
+  background-color: #7ed56f;
+  font-size: 20px;
+  height: auto;
+  padding: 15px;
+  font-weight: 300;
+  align-items: center;
+  color: rgb(48, 50, 50);
+
+  /* CSS GRID */
+  display: grid;
+  grid-template-columns: 80% 20%;
+}
+
 .current-route {
+  padding-left: 30px;
+}
+
+.btn1:link,
+.btn1:visited,
+.btn1.btn-signin {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 5px 25px;
+  display: inline-block;
+  border-radius: 100px;
+  border: none;
+  font-size: 15px;
+  color: #28b485;
+  background-color: #fff;
+  font-weight: 500;
+}
+
+.btn1:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn1:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.carpool-form {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  font-family: sans-serif;
+  color: rgb(78, 79, 80);
+}
+
+.carpool-form input[type="text"],
+.carpool-form input[type="tel"],
+.carpool-form select {
+  width: 100%;
+  padding: 8px 12px;
+  margin: 5px 0 15px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+/* CSS GRID */
+.publish-grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: minmax(50px, auto);
+  gap: 10px;
+}
+
+.publish-grid-container .publish-grid-item:nth-child(3) {
+  grid-column: 1 / span 1;
+}
+.publish-grid-container .publish-grid-item:nth-child(4) {
+  grid-column: 2 / span 1;
+  max-width: 50%;
+}
+
+.publish-grid-container .publish-grid-item:nth-child(5) {
+  grid-column: 1 / span 1;
+}
+
+.publish-grid-container .publish-grid-item:nth-child(6) {
+  grid-column: 2 / span 1;
+}
+
+.btn2 {
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 100px;
+  border: none;
+  font-size: 15px;
+  color: #fff;
+  background-color: #198754;
+  font-weight: 500;
+}
+
+.btn2:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn2:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.container-carinfo {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 20px;
+}
+
+.vehicle-info {
+  background-color: white;
+  color: rgb(48, 50, 50);
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  font-family: sans-serif;
+}
+
+.car-img {
+  /* background-color: #f8f8f8; */
+  /* padding: 10px; */
+  border-radius: 20px;
+}
+
+.history-routes-container {
+  background-color: white;
+  color: rgb(48, 50, 50);
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  font-family: sans-serif;
+}
+
+.history-routes-title {
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: 500;
+  color: #28b485;
+  text-align: center;
+}
+
+.history-routes-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.history-routes-table th,
+.history-routes-table td {
+  border: 1px solid #7ed56f;
+  padding: 10px;
   text-align: left;
-  background-color: rgb(249, 250, 249);
+}
+
+.history-routes-table th {
+  background-color: #7ed56f;
+  color: white;
 }

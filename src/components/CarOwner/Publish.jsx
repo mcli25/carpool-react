@@ -1,81 +1,85 @@
 import React, { useState } from "react";
-import { Button, Modal, Form } from "react-bootstrap";
-import { DateField } from "@mui/x-date-pickers/DateField";
-import dayjs from "dayjs";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { irelandCities } from "../../data/cities";
+import "./CarOwner.css";
 
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-const Publish = () => {
-  const tomorrow = dayjs().add(1, "day");
-  const [startDate, setStartDate] = useState("");
-  const [show, setShow] = useState(false);
+function Pulish(props) {
+  const [formData, setFormData] = useState({
+    driver: props.driver,
+    departure: "",
+    destination: "",
+    date: new Date(),
+    phone: "",
+    timestamp: Date.now(),
+  });
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleInputChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleDateChange = (date) => {
+    setFormData({ ...formData, date });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // publish
+    props.addRoute(formData);
+    props.handleModalClose();
+  };
 
   return (
-    <>
-      <Button variant="success" onClick={handleShow}>
-        Publish
-      </Button>
+    <div class="carpool-form">
+      <form class="publish-grid-container" onSubmit={handleSubmit}>
+        <label class="publish-grid-item">
+          Departure:
+          <select
+            name="departure"
+            value={formData.departure}
+            onChange={handleInputChange}
+          >
+            <option value="">Select Departure</option>
+            {irelandCities.map((city) => (
+              <option value={city}>{city}</option>
+            ))}
+          </select>
+        </label>
+        <label class="publish-grid-item">
+          Destination:
+          <select
+            name="destination"
+            value={formData.destination}
+            onChange={handleInputChange}
+          >
+            <option value="">Select Destination</option>
+            {irelandCities.map((city) => (
+              <option value={city}>{city}</option>
+            ))}
+          </select>
+        </label>
 
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Publish</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Form>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Control
-                type="text"
-                placeholder="From"
-                autoFocus
-                className="mb-2"
-              />
-              <Form.Control
-                type="text"
-                placeholder="To"
-                autoFocus
-                className="mb-2"
-              />
-              <Form.Control
-                type="text"
-                placeholder="Contact Number"
-                autoFocus
-                className="mb-2"
-              />
-            </Form.Group>
-            <span>Departure Date:</span>
-            <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <DateField
-                defaultValue={tomorrow}
-                disablePast
-                onChange={(p) => {
-                  setStartDate(`${p.$y}-${p.$M + 1}-${p.$D}`);
-                  console.log(startDate);
-                }}
-              />
-            </LocalizationProvider>
-            <Form.Group
-              className="mb-3"
-              controlId="exampleForm.ControlTextarea1"
-            >
-              <Form.Label>Description</Form.Label>
-              <Form.Control as="textarea" rows={3} />
-            </Form.Group>
-          </Form>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="success" onClick={handleClose}>
-            Save Changes
-          </Button>
-        </Modal.Footer>
-      </Modal>
-    </>
+        <label class="publish-grid-item">
+          Telphone number:
+          <input
+            type="tel"
+            name="phone"
+            value={formData.phone}
+            onChange={handleInputChange}
+          />
+        </label>
+        <label class="publish-grid-item">
+          Date:
+          <br></br>
+          <DatePicker selected={formData.date} onChange={handleDateChange} />
+        </label>
+        <button class="publish-grid-item btn2">Publish</button>
+        <button class="publish-grid-item btn2" onClick={props.handleModalClose}>
+          Back
+        </button>
+      </form>
+    </div>
   );
-};
+}
 
-export default Publish;
+export default Pulish;
