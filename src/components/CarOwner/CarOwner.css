@@ -16,7 +16,7 @@
   display: grid;
   grid-template-columns: 80% 20%;
 }
-div strong {
+.current-route strong {
   font-size: 30px;
 }
 /* .current-route {
