@@ -12,7 +12,7 @@ const CarInfo = () => {
     imageUrl: "/img/AE86.JPG",
   });
   return (
-    <div className="page-container">
+    <div className="carinfo-page-container">
       <div className="vehicle-info-container">
         <div className="vehicle-info">
           <h3>My Vehicle</h3>

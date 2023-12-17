@@ -7,15 +7,16 @@
   font-weight: 300;
   align-items: center;
   color: rgb(48, 50, 50);
+  margin: 0% 10%;
 
   /* CSS GRID */
   display: grid;
   grid-template-columns: 80% 20%;
 }
 
-.current-route {
+/* .current-route {
   margin: 0% 12%;
-}
+} */
 
 .btn1:link,
 .btn1:visited,
@@ -155,39 +156,29 @@
   color: red;
 }
 
-/* .vehicle-info {
-  background-color: white;
-  color: rgb(48, 50, 50);
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  font-family: sans-serif;
-  text-align: center;
-} */
-
-.page-container {
-  background-image: url("/public/img/AE86.JPG"); /* 替换为您的背景图片路径 */
-  height: 100vh; /* 视口高度 */
+.carinfo-page-container {
+  background-image: url("/public/img/AE86.JPG");
+  height: 100vh;
   background-size: cover;
   background-position: center;
   display: flex;
-  justify-content: flex-end; /* 车辆信息在右侧 */
+  justify-content: flex-end;
   max-width: 100%;
   margin: 0% 10%;
 }
 
 .vehicle-info-container {
-  width: 300px; /* 调整为所需宽度 */
-  background-color: rgba(255, 255, 255, 0.9); /* 半透明白色背景 */
+  width: 300px;
+  background-color: rgba(255, 255, 255, 0.9);
   padding: 20px;
-  box-shadow: -5px 0 10px rgba(0, 0, 0, 0.2); /* 左侧阴影 */
-  height: 100vh; /* 视口高度 */
-  overflow-y: auto; /* 如果内容超过视口高度则滚动 */
+  box-shadow: -5px 0 10px rgba(0, 0, 0, 0.2);
+  height: 100vh;
+  overflow-y: auto;
 }
 
 .vehicle-info {
   margin: 0 auto;
-  max-width: 250px; /* 调整为所需最大宽度 */
+  max-width: 250px;
 }
 
 .vehicle-info h3 {
