@@ -6,7 +6,7 @@ const CarInfo = () => {
     Make: "Toyota",
     Model: "AE86",
     Year: 1987,
-    Color: "Write",
+    Color: "Write/Black",
     Type: "Compact Car",
     Layout: "Front-Engined, Rear-Wheel Drive",
     imageUrl: "/img/AE86.JPG",
