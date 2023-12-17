@@ -1,19 +1,24 @@
 .container--1 {
   font-family: sans-serif;
-  background-color: #7ed56f;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  box-shadow: -5px 0 10px rgba(0, 0, 0, 0.2);
+  /* background-color: #198754; */
   font-size: 20px;
   height: auto;
   padding: 15px;
   font-weight: 300;
   align-items: center;
-  color: rgb(48, 50, 50);
+  color: #198754;
   margin: 0% 10%;
 
   /* CSS GRID */
   display: grid;
   grid-template-columns: 80% 20%;
 }
-
+div strong {
+  font-size: 30px;
+}
 /* .current-route {
   margin: 0% 12%;
 } */
@@ -28,8 +33,8 @@
   border-radius: 100px;
   border: none;
   font-size: 15px;
-  color: #28b485;
-  background-color: #fff;
+  color: #fff;
+  background-color: #198754;
   font-weight: 500;
 }
 
@@ -131,7 +136,7 @@
   margin-bottom: 20px;
   font-size: 24px;
   font-weight: 500;
-  color: #28b485;
+  color: #198754;
   text-align: center;
 }
 
@@ -142,13 +147,13 @@
 
 .history-routes-table th,
 .history-routes-table td {
-  border: 1px solid #7ed56f;
+  border: 1px solid #198754;
   padding: 10px;
   text-align: left;
 }
 
 .history-routes-table th {
-  background-color: #7ed56f;
+  background-color: #198754;
   color: white;
 }
 

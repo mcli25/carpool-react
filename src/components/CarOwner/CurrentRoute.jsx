@@ -107,9 +107,10 @@ export default function CurrentRoute() {
       {!showPulish && currentRoute && (
         <div className="container--1">
           <div className="current-route">
-            The current route: {currentRoute.departure} -{" "}
-            {currentRoute.destination} on{" "}
-            {format(currentRoute.date.toDate(), "yyyy-MM-dd")}
+            <strong>Current route:</strong> From{" "}
+            <strong>{currentRoute.departure}</strong> to{" "}
+            <strong>{currentRoute.destination}</strong> on{" "}
+            <strong>{format(currentRoute.date.toDate(), "yyyy-MM-dd")}</strong>
           </div>
           <div>
             <a
