@@ -78,7 +78,7 @@
 }
 .publish-grid-container .publish-grid-item:nth-child(4) {
   grid-column: 2 / span 1;
-  max-width: 50%;
+  max-width: 20%;
 }
 
 .publish-grid-container .publish-grid-item:nth-child(5) {
@@ -168,7 +168,7 @@
 }
 
 .vehicle-info-container {
-  width: 300px;
+  width: 400px;
   background-color: rgba(255, 255, 255, 0.9);
   padding: 20px;
   box-shadow: -5px 0 10px rgba(0, 0, 0, 0.2);
@@ -178,7 +178,7 @@
 
 .vehicle-info {
   margin: 0 auto;
-  max-width: 250px;
+  max-width: 350px;
 }
 
 .vehicle-info h3 {
