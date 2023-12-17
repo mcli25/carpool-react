@@ -95,7 +95,9 @@ export default function CurrentRoute() {
       {/* Does not have current route, can publish */}
       {!showPulish && !currentRoute && (
         <div className="container--1">
-          <div className="current-route">The current route: None</div>
+          <div className="current-route">
+            <strong>Current route:</strong> None
+          </div>
           <div>
             <a className="btn1" href="#" onClick={handleModalOpen}>
               pulish

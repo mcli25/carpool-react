@@ -29,6 +29,8 @@
   text-transform: uppercase;
   text-decoration: none;
   padding: 5px 25px;
+  height: 32px;
+  width: 110px;
   display: inline-block;
   border-radius: 100px;
   border: none;
@@ -55,6 +57,7 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   font-family: sans-serif;
   color: rgb(78, 79, 80);
+  margin: 0% 10%;
 }
 
 .carpool-form input[type="text"],
