@@ -14,7 +14,7 @@
 }
 
 .current-route {
-  padding-left: 30px;
+  margin: 0% 12%;
 }
 
 .btn1:link,
@@ -116,21 +116,6 @@
   gap: 20px;
 }
 
-.vehicle-info {
-  background-color: white;
-  color: rgb(48, 50, 50);
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  font-family: sans-serif;
-}
-
-.car-img {
-  /* background-color: #f8f8f8; */
-  /* padding: 10px; */
-  border-radius: 20px;
-}
-
 .history-routes-container {
   background-color: white;
   color: rgb(48, 50, 50);
@@ -138,6 +123,7 @@
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   font-family: sans-serif;
+  margin: 0% 10%;
 }
 
 .history-routes-title {
@@ -167,4 +153,65 @@
 
 .error {
   color: red;
+}
+
+/* .vehicle-info {
+  background-color: white;
+  color: rgb(48, 50, 50);
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  font-family: sans-serif;
+  text-align: center;
+} */
+
+.page-container {
+  background-image: url("/public/img/AE86.JPG"); /* 替换为您的背景图片路径 */
+  height: 100vh; /* 视口高度 */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: flex-end; /* 车辆信息在右侧 */
+  max-width: 100%;
+  margin: 0% 10%;
+}
+
+.vehicle-info-container {
+  width: 300px; /* 调整为所需宽度 */
+  background-color: rgba(255, 255, 255, 0.9); /* 半透明白色背景 */
+  padding: 20px;
+  box-shadow: -5px 0 10px rgba(0, 0, 0, 0.2); /* 左侧阴影 */
+  height: 100vh; /* 视口高度 */
+  overflow-y: auto; /* 如果内容超过视口高度则滚动 */
+}
+
+.vehicle-info {
+  margin: 0 auto;
+  max-width: 250px; /* 调整为所需最大宽度 */
+}
+
+.vehicle-info h3 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.vehicle-info table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.vehicle-info th,
+.vehicle-info td {
+  text-align: left;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+.vehicle-info th {
+  font-weight: bold;
+  background-color: #f8f8f8;
+}
+
+.vehicle-info tr:hover {
+  background-color: #e9e9e9;
 }

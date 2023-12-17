@@ -2,31 +2,34 @@ import React, { useState } from "react";
 
 const CarInfo = () => {
   const [vehicleInfo, setVehicleInfo] = useState({
-    make: "Japan",
-    model: "AE86",
-    year: "1997",
+    Name: "Sprinter Trueno AE86",
+    Make: "Toyota",
+    Model: "AE86",
+    Year: 1987,
+    Color: "Write",
+    Type: "Compact Car",
+    Layout: "Front-Engined, Rear-Wheel Drive",
     imageUrl: "/img/AE86.JPG",
   });
   return (
-    <div className="container-carinfo">
-      <div className="car-img">
-        <img
-          src={vehicleInfo.imageUrl}
-          alt={`${vehicleInfo.make} ${vehicleInfo.model}`}
-          width={1000}
-        />
-      </div>
-      <div className="vehicle-info">
-        <h3>My Vehicle</h3>
-        <p>
-          <strong>Make:</strong> {vehicleInfo.make}
-        </p>
-        <p>
-          <strong>Model:</strong> {vehicleInfo.model}
-        </p>
-        <p>
-          <strong>Year:</strong> {vehicleInfo.year}
-        </p>
+    <div className="page-container">
+      <div className="vehicle-info-container">
+        <div className="vehicle-info">
+          <h3>My Vehicle</h3>
+          <table>
+            <tbody>
+              {Object.getOwnPropertyNames(vehicleInfo).map(
+                (property) =>
+                  property !== "imageUrl" && (
+                    <tr key={property}>
+                      <th>{property}:</th>
+                      <td>{vehicleInfo[property]}</td>
+                    </tr>
+                  )
+              )}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );
