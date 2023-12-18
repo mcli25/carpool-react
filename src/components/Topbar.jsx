@@ -53,33 +53,35 @@ const Topbar = () => {
         <Navbar.Brand href="/">Carpool</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
-          <Form className="d-flex">
-            <FormControl
-              type="text"
-              placeholder="Your location"
-              className="mr-2"
-              style={{ fontSize: "18px" }}
-              onChange={handleStartChange}
-            />
-            <FormControl
-              type="text"
-              placeholder="Destination"
-              className="mr-2"
-              style={{ fontSize: "18px" }}
-              onChange={handleDestChange}
-            />
-            <Button
-              variant="outline-light"
-              style={{
-                fontSize: "18px",
-                marginLeft: "10px",
-                marginRight: "10px",
-              }}
-              onClick={handleSubmit}
-            >
-              Search
-            </Button>
-          </Form>
+          {!isLogged && (
+            <Form className="d-flex">
+              <FormControl
+                type="text"
+                placeholder="Your location"
+                className="mr-2"
+                style={{ fontSize: "18px" }}
+                onChange={handleStartChange}
+              />
+              <FormControl
+                type="text"
+                placeholder="Destination"
+                className="mr-2"
+                style={{ fontSize: "18px" }}
+                onChange={handleDestChange}
+              />
+              <Button
+                variant="outline-light"
+                style={{
+                  fontSize: "18px",
+                  marginLeft: "10px",
+                  marginRight: "10px",
+                }}
+                onClick={handleSubmit}
+              >
+                Search
+              </Button>
+            </Form>
+          )}
           <Nav className="mr-auto">
             {isLogged && (
               <Nav.Link as={NavLink} to="/explore" style={{ fontSize: "18px" }}>
@@ -108,16 +110,7 @@ const Topbar = () => {
 
             <Dropdown.Menu>
               {!isLogged && <Dropdown.Item href="/login">Log in</Dropdown.Item>}
-              {isLogged && (
-                <Dropdown.Item href="/profile">My profile</Dropdown.Item>
-              )}
 
-              {isLogged && (
-                <Dropdown.Item href="/favorites">My favorites</Dropdown.Item>
-              )}
-              {isLogged && (
-                <Dropdown.Item href="/publish">My publishs</Dropdown.Item>
-              )}
               {isLogged && (
                 <Dropdown.Item onClick={handleLogout}>Log out</Dropdown.Item>
               )}

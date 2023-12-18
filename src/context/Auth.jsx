@@ -2,11 +2,15 @@ import React, { createContext, useEffect, useState } from "react";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { toast } from "react-toastify";
 import { auth } from "../firebaseConfig";
-
+import { useNavigate } from "react-router-dom";
 const AuthContext = createContext();
+
 const AuthProvider = ({ children }) => {
+  const navigate = useNavigate();
+
   const [isLogged, setIsLogged] = useState(false);
   const [user, setUser] = useState({});
+
   useEffect(() => {
     onAuthStateChanged(auth, (res) => {
       //   console.log(res?.accessToken);
@@ -22,6 +26,7 @@ const AuthProvider = ({ children }) => {
     signOut(auth)
       .then(() => {
         toast.success("Signed out successfullly");
+        navigate("/");
         setIsLogged(false);
         setUser({});
       })
